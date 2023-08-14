@@ -79,24 +79,28 @@ app.get("/todos/:id", (req, res) => {
 });
 
 app.put("/todos/:id", (req, res) => {
-  const id = decryptId(req.params.id);
+  const id = req.params.id;
 
-  const response = todoList[id];
-  if (!response) res.status(404).send({ message: `${id} does not exist...` });
+  const responseIndex = todoList.findIndex((item) => item.id === id);
+  if (responseIndex === -1)
+    res.status(404).send({ message: `${id} does not exist...` });
 
-  todoList[id].title = req.body.title;
-  todoList[id].description = req.body.description;
+  todoList[responseIndex].title = req.body.title;
+  todoList[responseIndex].description = req.body.description;
+  writeToJsonFile();
 
-  res.send(todoList[id]);
+  res.send(todoList[responseIndex]);
 });
 
 app.delete("/todos/:id", (req, res) => {
-  const id = decryptId(req.params.id);
+  const id = req.params.id;
 
-  const response = todoList[id];
-  if (!response) res.status(404).send({ message: `${id} does not exist...` });
+  const responseIndex = todoList.findIndex((item) => item.id === id);
+  if (responseIndex === -1)
+    res.status(404).send({ message: `${id} does not exist...` });
 
-  todoList.splice(id, 1);
+  todoList.splice(responseIndex, 1);
+  writeToJsonFile();
   res.send(todoList);
 });
 

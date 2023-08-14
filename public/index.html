@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/07e8dbbd33.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="scripts.js"></script>
+
+    <title>Document</title>
+  </head>
+
+  <body onload="fetchAllData()">
+    <nav
+      class="navbar navbar-expand-lg bg-info justify-content-center mb-5 p-5"
+    >
+      <div class="display-6 bold text-white">TODO APP</div>
+    </nav>
+
+    <div class="container justify-content-center">
+      <form class="mb-5">
+        <div class="row">
+          <div class="col-2">
+            <input
+              class="form-control"
+              placeholder="Title"
+              id="title"
+              type="text"
+              name="title"
+            />
+          </div>
+          <div class="col-8">
+            <input
+              class="form-control"
+              placeholder="Description"
+              id="description"
+              type="text"
+              name="description"
+            />
+          </div>
+          <div class="col-1">
+            <input
+              class="btn btn-info text-white"
+              type="button"
+              value="Create"
+              onclick="postTodo()"
+            />
+          </div>
+          <div class="col-1">
+            <button class="btn btn-outline-info" onclick="fetchAllData()">
+              <i class="fa-sharp fa-solid fa-rotate-right"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div id="table"></div>
+
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content p-5">
+            <form>
+              <span
+                id="id-modal"
+                class="text-info mb-5"
+                style="font-weight: bold"
+              ></span>
+              <input
+                type="text"
+                id="title-modal"
+                class="form-control mb-3 mt-3"
+                placeholder="Title"
+              />
+              <input
+                type="text"
+                id="description-modal"
+                class="form-control mb-3"
+                placeholder="Description"
+              />
+              <input
+                type="button"
+                id="submit-modal"
+                value="Submit"
+                class="btn btn-outline-info col-12"
+                data-bs-dismiss="modal"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
